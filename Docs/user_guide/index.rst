@@ -2,15 +2,35 @@
    :class: hideitem
 .. _ug-index:
 
+:hideitem:`toc tree`
+------------------------------------
+.. toctree::
+  :hidden:
+
+   Overview <ug_index>
+   PyTorch Quick Start <quick_start>
+   Installation <../install/index>
+   Quantization User Guide <model_quantization>
+   Compression User Guide <model_compression>
+   API Documentation<../api_docs/index>
+   Examples Documentation <examples>
+
 ======================================
 AI Model Efficiency Toolkit User Guide
 ======================================
 
-Overview
-========
-
 AI Model Efficiency Toolkit (AIMET) is a software toolkit that enables users to quantize and compress models.
 Quantization is a must for efficient edge inference using fixed-point AI accelerators.
+
+.. sidebar:: Getting Started
+   :subtitle: **Quick installation instructions**
+
+    To get started immediately by installing AIMET for PyTorch using PIP, go to :doc:`/install/quick_start`. 
+
+    To explore other install options go to :doc:`/install/index`.
+
+System Overview
+===============
 
 AIMET optimizes pre-trained models (e.g., FP32 trained models) using post-training and fine-tuning techniques that
 minimize accuracy loss incurred during quantization or compression.
@@ -36,38 +56,12 @@ AIMET supports two sets of model optimization techniques:
 
 - Model Compression: AIMET supports multiple model compression techniques that allow the
   user to take a trained model and remove redundancies, resulting in a smaller model that runs faster on target.
-
+  
 Release Information
 ===================
 
-For information specific to this release, please see :ref:`Release Notes <ug-release-notes>` and :ref:`Known Issues <ug-known-issues>`.
+For information specific to this release, see :ref:`Release Notes <ug-release-notes>` and :ref:`Known Issues <ug-known-issues>`.
 
-Installation Guide
-==================
-
-Please visit the :ref:`AIMET Installation <ug-installation>` for more details.
-
-Getting Started
-===============
-
-Please refer to the following documentation:
-
-- :ref:`Quantization User Guide <ug-model-quantization>`
-- :ref:`Compression User Guide <ug-model-compression>`
-- :ref:`API Documentation <ug-apidocs>`
-- :ref:`Examples Documentation <ug-examples>`
-- :ref:`Installation <ug-installation>`
-
-:hideitem:`toc tree`
-------------------------------------
-.. toctree::
-  :hidden:
-
-   Quantization User Guide <model_quantization>
-   Compression User Guide <model_compression>
-   API Documentation<../api_docs/index>
-   Examples Documentation <examples>
-   Installation <../install/index>
 
 |
 

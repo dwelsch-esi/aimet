@@ -34,44 +34,56 @@
    #  @@-COPYRIGHT-END-@@
    # =============================================================================
 
-.. _ug-installation:
+#############
+Starting the Docker Container
+#############
 
-###################
-AIMET Installation
-###################
+Prerequisites
+~~~~~~~~~~~~~
 
-.. toctree::
-   :max_depth: 2
+* Install AIMET in a Docker container. 
+* Define `WORKSPACE`, `docker_container_name`, and `docker_image_name`.
 
-   PyTorch Quick Start <quick_start>
-   PyTorch on Host <torch_install>
-   PyTorch in Docker <torch_install_docker>
-   TensorFlow on Host <torch_install>
-   TensorFlow in Docker <torch_install_docker>
-   ONNX on Host <torch_install>
-   ONNX in Docker <torch_install_docker>
+See :doc:`torch_install_docker`.
 
-PyTorch Quick Install
-~~~~~~~~~~~~~~~~~~~~~
+Procedure
+~~~~~~~~~
 
-Instructions at :doc:`quick_start`.
+Step 1
+------
 
-PyTorch Installation
-~~~~~~~~~~~~~~~~~~~~
+Ensure that a docker named `$docker_container_name` is not already running:
 
-- :doc:`On host machine <install_host>`
-    -  :doc:`From PyPI <quick_start>`
-    - :doc:`From a release package <install_host>`
-- :doc:`In a Docker container <torch_install_docker>`
+.. code-block:: bash
 
-ONNX Installation
-~~~~~~~~~~~~~~~~~
+    docker ps -a | grep ${docker_container_name} && docker kill ${docker_container_name}
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <onnx_install_docker>`
+Step 2
+------
 
-TensorFlow Installation
-~~~~~~~~~~~~~~~~~~~~~~~
+Run the container from the command line:
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <tf_install_docker>`
+.. code-block:: bash
+
+    docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) \
+    -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro \
+    -v ${HOME}:${HOME} -v ${WORKSPACE}:${WORKSPACE} \
+    -v "/local/mnt/workspace":"/local/mnt/workspace" \
+    --entrypoint /bin/bash -w ${WORKSPACE} --hostname ${docker_container_name} ${docker_image_name}
+
+
+.. admonition:: NOTE
+   
+    * Modify the `docker run` command based on the environment and filesystem on your host machine.
+   
+    * If nvidia-docker 2.0 is installed, add `--gpus all` to the `docker run` command in order to enable GPU access inside the docker container.
+
+    * If nvidia-docker 1.0 is installed, replace `docker run` with `nvidia-docker run` to enable GPU access inside the docker container.
+    
+    * To run the Visualization APIs from docker container, enable port forwarding by adding this option to the `docker run` command:
+      -p ${port_id}:${port_id} 
+
+Next Steps
+~~~~~~~~~~
+
+:doc:`Test AIMET in the Docker container <test_aimet_docker>`.

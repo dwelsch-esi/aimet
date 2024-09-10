@@ -34,44 +34,46 @@
    #  @@-COPYRIGHT-END-@@
    # =============================================================================
 
-.. _ug-installation:
+.. _quick-start:
 
-###################
-AIMET Installation
-###################
+###########
+Quick Start
+###########
 
-.. toctree::
-   :max_depth: 2
+PIP Install
+~~~~~~~~~~~
 
-   PyTorch Quick Start <quick_start>
-   PyTorch on Host <torch_install>
-   PyTorch in Docker <torch_install_docker>
-   TensorFlow on Host <torch_install>
-   TensorFlow in Docker <torch_install_docker>
-   ONNX on Host <torch_install>
-   ONNX in Docker <torch_install_docker>
+Use the following procedure to quickly install AIMET for PyTorch using the AIMET PyTorch GPU PiPI packages.
 
-PyTorch Quick Install
-~~~~~~~~~~~~~~~~~~~~~
+For other platforms or if your system does not meet the prerequisite requirements, see :doc:`index`.
 
-Instructions at :doc:`quick_start`.
+Prerequisites
+-------------
 
-PyTorch Installation
-~~~~~~~~~~~~~~~~~~~~
+To install using the AIMET PyTorch GPU PyPI packages you must have:
 
-- :doc:`On host machine <install_host>`
-    -  :doc:`From PyPI <quick_start>`
-    - :doc:`From a release package <install_host>`
-- :doc:`In a Docker container <torch_install_docker>`
+* A 64-bit Intel x86-compatible processor
+* Linux Ubuntu 22.04 LTS (for Python 3.10) or Ubuntu 20.04 LTS (for Python 3.8)
+* Cuda 12.0 (if using GPU)
+* Torch 2.2.2
 
-ONNX Installation
-~~~~~~~~~~~~~~~~~
+Use `apt-get` to install the LIBLAPACK linear algebra packaage:
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <onnx_install_docker>`
+.. code-block::
 
-TensorFlow Installation
-~~~~~~~~~~~~~~~~~~~~~~~
+    apt-get install liblapacke
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <tf_install_docker>`
+Installation Procedure
+----------------------
+
+Use PIP to install AIMET-Torch.
+
+.. code-block::
+
+    python3 -m pip install aimet-torch
+
+Next Steps
+~~~~~~~~~~
+
+:doc:`Test the Docker container <test_aimet_local>`.
+

@@ -34,44 +34,19 @@
    #  @@-COPYRIGHT-END-@@
    # =============================================================================
 
-.. _ug-installation:
+#############
+Testing AIMET in a Local Installation
+#############
 
-###################
-AIMET Installation
-###################
+Prerequisites
+~~~~~~~~~~~~~
 
-.. toctree::
-   :max_depth: 2
+* Install AIMET locally. 
+* Define `WORKSPACE`, `docker_container_name`, and `docker_image_name`.
 
-   PyTorch Quick Start <quick_start>
-   PyTorch on Host <torch_install>
-   PyTorch in Docker <torch_install_docker>
-   TensorFlow on Host <torch_install>
-   TensorFlow in Docker <torch_install_docker>
-   ONNX on Host <torch_install>
-   ONNX in Docker <torch_install_docker>
+See :doc:`index`.
 
-PyTorch Quick Install
-~~~~~~~~~~~~~~~~~~~~~
+Procedure
+~~~~~~~~~
 
-Instructions at :doc:`quick_start`.
-
-PyTorch Installation
-~~~~~~~~~~~~~~~~~~~~
-
-- :doc:`On host machine <install_host>`
-    -  :doc:`From PyPI <quick_start>`
-    - :doc:`From a release package <install_host>`
-- :doc:`In a Docker container <torch_install_docker>`
-
-ONNX Installation
-~~~~~~~~~~~~~~~~~
-
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <onnx_install_docker>`
-
-TensorFlow Installation
-~~~~~~~~~~~~~~~~~~~~~~~
-
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <tf_install_docker>`
+**Use Hitarth's toy example to test**

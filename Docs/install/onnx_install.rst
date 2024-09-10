@@ -34,44 +34,58 @@
    #  @@-COPYRIGHT-END-@@
    # =============================================================================
 
-.. _ug-installation:
+.. _onnx-install:
 
-###################
-AIMET Installation
-###################
+#######################
+AIMET ONNX Installation
+#######################
 
-.. toctree::
-   :max_depth: 2
 
-   PyTorch Quick Start <quick_start>
-   PyTorch on Host <torch_install>
-   PyTorch in Docker <torch_install_docker>
-   TensorFlow on Host <torch_install>
-   TensorFlow in Docker <torch_install_docker>
-   ONNX on Host <torch_install>
-   ONNX in Docker <torch_install_docker>
+Prerequisites
+~~~~~~~~~~~~~
 
-PyTorch Quick Install
-~~~~~~~~~~~~~~~~~~~~~
+To install using the AIMET PyTorch GPU PyPI packages you must have:
 
-Instructions at :doc:`quick_start`.
+* 64-bit Intel x86-compatible processor
+* Linux Ubuntu: 22.04 LTS
+* bash command shell
+* For GPU variants:
+    * Nvidia GPU card (Compute capability 5.2 or later)
+    * nvidia-docker - Installation instructions: https://github.com/NVIDIA/nvidia-docker
+    * To use the GPU accelerated training modules: An Nvidia driver version of 455or later. Using the latest driver is always recommended, especially if using a newer GPU. Both CUDA and cuDNN (the more advanced CUDA interface) GPUs are supported.
+* ONNX?
 
-PyTorch Installation
-~~~~~~~~~~~~~~~~~~~~
+Procedure
+~~~~~~~~~
 
-- :doc:`On host machine <install_host>`
-    -  :doc:`From PyPI <quick_start>`
-    - :doc:`From a release package <install_host>`
-- :doc:`In a Docker container <torch_install_docker>`
+Step 1. Use PIP to install the release:
 
-ONNX Installation
-~~~~~~~~~~~~~~~~~
+Install the latest version from the `r.whl` files hosted at `https://github.com/quic/aimet/releases`. Do one of the following:
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <onnx_install_docker>`
+For ONNX 1.14 GPU:
 
-TensorFlow Installation
-~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: bash
 
-- :doc:`On host machine <install_host>` from a release package
-- :doc:`In a Docker container <tf_install_docker>`
+    # ONNX 1.14 GPU
+    python3 -m pip install |download_url|\ |version|/aimet_onnx-onnx_gpu\_\ |version|\ |whl_suffix|
+
+For ONNX 1.14 CPU:
+
+.. code-block:: bash
+
+    # ONNX 1.14 CPU
+    python3 -m pip install |download_url|\ |version|/aimet_onnx-onnx_cpu\_\ |version|\ |whl_suffix|
+
+.. admonition:: NOTICE
+
+    For previous AIMET releases, browse packages at `https://github.com/quic/aimet/releases`. Each release includes multiple python packages of the following format:
+
+    .. parsed-literal::
+
+        # VARIANT in {torch_gpu, torch_cpu, tf_gpu, tf_cpu, onnx_gpu, onnx_cpu}
+        # PACKAGE_PREFIX in {aimet_torch, aimet_tensorflow, aimet_onnx}
+        <PACKAGE_PREFIX>-<VARIANT>_<VERSION>\ |whl_suffix|
+
+.. |version| replace:: 1.31.0
+.. |whl_suffix| replace:: -cp38-cp38-linux_x86_64.whl
+.. |download_url| replace:: \https://github.com/quic/aimet/releases/download/
