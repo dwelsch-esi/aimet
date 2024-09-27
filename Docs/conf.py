@@ -92,7 +92,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx_tabs.tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -124,6 +125,9 @@ pygments_style = 'sphinx'
 
 # prefix each section label with the name of the document it is in, followed by a colon
 autosectionlabel_prefix_document = True
+
+# Allow insertion of a file within another file. Potential security risk.
+file_insertion_enabled = True
 
 # -- Options for HTML output -------------------------------------------------
 

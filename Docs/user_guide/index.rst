@@ -2,73 +2,39 @@
    :class: hideitem
 .. _ug-index:
 
-======================================
+######################################
 AI Model Efficiency Toolkit User Guide
-======================================
+######################################
 
-Overview
-========
+AIMET supports PyTorch, TensorFlow, and Keras model frameworks. Further, there are two versions of the AIMET API for PyTorch: the original version 1 framwork and the newer version 2 framework, on which all new API development is underway. To begin, select a framework. 
 
-AI Model Efficiency Toolkit (AIMET) is a software toolkit that enables users to quantize and compress models.
-Quantization is a must for efficient edge inference using fixed-point AI accelerators.
+There are significant differences in the implementaion and use of AIMET between frameworks, so this documentation is split by framework into separate documentation sets. 
 
-AIMET optimizes pre-trained models (e.g., FP32 trained models) using post-training and fine-tuning techniques that
-minimize accuracy loss incurred during quantization or compression.
+.. tabs::
 
-AIMET currently supports PyTorch, TensorFlow, and Keras models.
+   .. tab:: **PyTorch version 2**
 
-.. image:: ../images/AIMET_index_no_fine_tune.png
+      We recommend using PyTorch version 2, the most popular and feature-rich option. 
 
-The above picture shows a high-level view of the workflow when using AIMET. The user will start with a trained
-model in either the PyTorch, TensorFlow, or Keras training framework. This trained model is passed to AIMET using APIs
-for compression and quantization. AIMET returns a compressed/quantized version of the model
-that the users can fine-tune (or train further for a small number of epochs) to recover lost accuracy. Users can then
-export via ONNX/meta/h5 to an on-target runtime like Qualcomm\ |reg| Neural Processing SDK.
+      :doc:`Go to the PyTorch version 2 documentation. </user_guide/pytorch2/index>`
 
-Features
-========
+   .. tab:: **PyTorch version 1**
 
-AIMET supports two sets of model optimization techniques:
+      PyTorch version 1 is still available but will eventually be deprecated. 
 
-- Model Quantization: AIMET can simulate behavior of quantized HW for a given trained
-  model. This model can be optimized using Post-Training Quantization (PTQ) and fine-tuning (Quantization Aware Training
-  - QAT) techniques.
+      :doc:`Go to the PyTorch version 1 documentation. </user_guide/pytorch1/index>`
 
-- Model Compression: AIMET supports multiple model compression techniques that allow the
-  user to take a trained model and remove redundancies, resulting in a smaller model that runs faster on target.
+   .. tab:: **TensorFlow or Keras**
 
-Release Information
-===================
+      Use TensorFlow if you're already invested in that framework.
 
-For information specific to this release, please see :ref:`Release Notes <ug-release-notes>` and :ref:`Known Issues <ug-known-issues>`.
+      :doc:`Go to the TensorFlow/Keras documentation. </user_guide/tf/index>`
 
-Installation Guide
-==================
+   .. tab:: **ONNX**
 
-Please visit the :ref:`AIMET Installation <ug-installation>` for more details.
+      ONNX provides portability but lacks development features.
 
-Getting Started
-===============
-
-Please refer to the following documentation:
-
-- :ref:`Quantization User Guide <ug-model-quantization>`
-- :ref:`Compression User Guide <ug-model-compression>`
-- :ref:`API Documentation <ug-apidocs>`
-- :ref:`Examples Documentation <ug-examples>`
-- :ref:`Installation <ug-installation>`
-
-:hideitem:`toc tree`
-------------------------------------
-.. toctree::
-  :hidden:
-
-   Quantization User Guide <model_quantization>
-   Compression User Guide <model_compression>
-   API Documentation<../api_docs/index>
-   Examples Documentation <examples>
-   Installation <../install/index>
-
+      :doc:`Go to the ONNX documentation. </user_guide/onnx/index>`
 |
 
 |
